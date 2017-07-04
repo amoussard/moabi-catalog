@@ -1,0 +1,8 @@
+name: WebPageSurv
+description: |
+  An app watching change on webpages
+version: 0.0.1
+category: Application
+maintainer: Axel Moussard
+license: No licence
+projectURL: http://www.moabistudio.com

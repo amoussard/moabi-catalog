@@ -1,0 +1,39 @@
+version: '2'
+catalog:
+  name: WebPageSurv
+  version: 0.0.1
+  description: An app watching change on webpages
+  minimum_rancher_version: 1.0.0
+  maximum_rancher_version: 2.0.0
+  upgrade_from: ">=1.0.0, <=2.0.0"
+  questions:
+    - variable: app_port
+      label: App port
+      description: |
+        Port that will be exposed on service creation
+      required: true
+      default: 3000
+      type: int
+services:
+  api:
+    scale: 1
+    start_on_create: true
+    health_check:
+      port: 3000
+      interval: 2000
+      unhealthy_threshold: 3
+      strategy: recreate
+      request_line: GET / HTTP/1.0
+      healthy_threshold: 2
+      response_timeout: 2000
+  app:
+    scale: 1
+    start_on_create: true
+    health_check:
+      port: 3000
+      interval: 2000
+      unhealthy_threshold: 3
+      strategy: recreate
+      request_line: GET / HTTP/1.0
+      healthy_threshold: 2
+      response_timeout: 2000
