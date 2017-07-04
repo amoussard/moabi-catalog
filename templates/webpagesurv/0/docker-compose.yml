@@ -1,6 +1,6 @@
 version: '2'
 services:
-  web:
+  app:
     image: axelmoussard/webpagesurv-app:latest
     ports:
       - "${app_port}:3000"
