@@ -3,7 +3,7 @@ services:
   web:
     image: axelmoussard/webpagesurv-app:latest
     ports:
-      - "${host_port}:3000"
+      - "${app_port}:3000"
     links:
       - api:localhost
   api:
